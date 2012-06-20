@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<executable>
+  <category>Filtering</category>
+  <title>RawdpfTonhdr</title>
+  <description>
+   This module transforms a dpf file to a nhdr file.
+  </description>
+  <version>1</version>
+  <documentation-url></documentation-url>
+  <license></license>
+  <contributor>Francois Budin</contributor>
+<acknowledgements>
+</acknowledgements>
+  <parameters>
+    <label>Input/Output</label>
+    <description>Input/output parameters</description>
+    <file>
+      <name>dpfFileName</name>
+      <label>dpf File Name</label>
+      <channel>input</channel>
+      <index>0</index>
+      <description>dpf File</description>
+    </file>
+    <file>
+      <name>rawFileName</name>
+      <label>raw File Name</label>
+      <channel>input</channel>
+      <index>1</index>
+      <description>raw File. If multiple files, replace index with %d</description>
+    </file>
+    <file>
+      <name>outputnhdrFileName</name>
+      <label>nhdr File Name</label>
+      <channel>output</channel>
+      <index>2</index>
+      <description>nhdr File</description>
+    </file>
+    <double-vector>
+      <name>index</name>
+      <flag>i</flag>
+      <longflag>index</longflag>
+      <default>0,6,1</default>
+      <description>Sets the index evolution of the data file</description>
+    </double-vector>
+    <string-enumeration>
+      <name>b0dwi</name>
+      <flag>b</flag>
+      <longflag>b0_or_dwi</longflag>
+      <default>DWI</default>
+      <element>DWI</element>
+      <element>b0</element>
+      <description>Selects between the creation of a header for a b0 and a DWI</description>
+    </string-enumeration> 
+    <string>
+      <name>type</name>
+      <flag>t</flag>
+      <longflag>type</longflag>
+      <default>uint16</default>
+      <description>Sets data type</description>
+    </string>
+    <string-enumeration>
+      <name>endian</name>
+      <flag>e</flag>
+      <longflag>endian</longflag>
+      <default>big</default>
+      <element>big</element>
+      <element>little</element>
+      <description>Set the endianness</description>
+    </string-enumeration>
+    <string-enumeration>
+      <name>space</name>
+      <flag>s</flag>
+      <longflag>space</longflag>
+      <default>left-posterior-superior</default>
+      <element>left-posterior-superior</element>
+      <element>right-anterior-superior</element>
+      <element>scanner-xyz</element>
+      <element>3D-right-handed</element>
+      <element>left-anterior-superior</element>
+      <element>3D-left-handed</element>
+      <description>Sets the space of the image</description>
+    </string-enumeration>
+    <boolean>
+       <name>check</name>
+       <longflag>check</longflag>
+       <flag>c</flag>
+       <default>false</default>
+       <description>Tries to open the nhdr file created as an image with ITK to see if it works</description>
+    </boolean>
+    <boolean>
+       <name>verbose</name>
+       <longflag>verbose</longflag>
+       <flag>v</flag>
+       <default>false</default>
+       <description>Prints info while processing</description>
+    </boolean>
+    <boolean>
+      <name>notnormalized</name>
+      <longflag>notnormalized</longflag>
+      <flag>n</flag>
+      <default>false</default>
+      <description>Do not normalize the gradients</description>
+    </boolean>
+  </parameters>
+</executable>
+
