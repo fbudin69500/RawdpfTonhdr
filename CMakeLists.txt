@@ -8,14 +8,6 @@ project( RawdpfTonhdr )
     INCLUDE(${USE_ITK_FILE})
   ENDIF(USE_ITK_FILE)
 
-  SET(ITK_LIBRARIES
-    ITKCommon
-    ITKIO
-    ITKNumerics
-    ITKBasicFilters
-    ITKAlgorithms
-    )
-
 find_package(GenerateCLP REQUIRED)
 if(GenerateCLP_FOUND)
   include(${GenerateCLP_USE_FILE})
